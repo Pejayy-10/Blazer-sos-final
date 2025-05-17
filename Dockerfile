@@ -38,6 +38,12 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 RUN curl --silent --location https://lang-php.s3.amazonaws.com/dist-heroku-22-stable/php-8.2.6.tar.gz | tar xz -C /app/
 ENV PATH=/app/php/bin:/app/composer/bin:$PATH
 
+# Ensure the /app directory exists before extracting the tarball
+RUN mkdir -p /app && chmod -R 755 /app
+
+# Debugging step to verify the /app directory
+RUN ls -la /app
+
 # Add user for application
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
