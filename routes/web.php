@@ -29,6 +29,7 @@ use App\Livewire\Student\PastYearbooks;
 use App\Livewire\Student\Cart;
 use App\Livewire\Student\Orders;
 use App\Livewire\Admin\ManageOrders;
+use App\Http\Controllers\HealthCheckController;
 
 /*
 |--------------------------------------------------------------------------
@@ -140,3 +141,6 @@ Route::get('/', function () {
         'pastYearbooks' => $pastYearbooks
     ]);
 })->name('landing');
+
+// Health check route for Render deployment
+Route::get('/health', HealthCheckController::class)->name('health.check');

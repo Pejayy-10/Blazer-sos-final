@@ -1,0 +1,17 @@
+# Add overrides to the standard .gitignore for Render deployment
+# This ensures that certain files that might be ignored locally
+# are still included in the repository for deployment
+
+# Include public/storage symlink
+!public/storage
+
+# Include build artifacts if they exist
+!public/build
+!public/build/**/*
+
+# Include vendor directory only for rendered files
+!vendor/livewire
+
+# Include .env.production but not .env
+!.env.production
+.env

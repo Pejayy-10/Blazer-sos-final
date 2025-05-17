@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +22,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Set the default string length for MySQL
+        Schema::defaultStringLength(191);
+        
+        // Force HTTPS in production
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
+
+        // Set correct SSL mode for MySQL in Render
+        if (config('app.env') === 'production' && config('database.default') === 'mysql') {
+            Config::set('database.connections.mysql.options', [
+                \PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/cert.pem',
+                \PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+            ]);
+        }
     }
 }
