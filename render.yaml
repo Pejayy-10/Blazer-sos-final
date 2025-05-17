@@ -1,11 +1,9 @@
-services:
-  - type: web
+services:  - type: web
     name: blazer-sos
     env: docker
     plan: standard
     healthCheckPath: /health
     buildCommand: ./build.sh
-    startCommand: heroku-php-nginx -C nginx.conf public/
     envVars:
       - key: APP_ENV
         value: production
