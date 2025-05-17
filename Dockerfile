@@ -34,6 +34,10 @@ RUN docker-php-ext-install gd
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Install Heroku PHP buildpack binaries
+RUN curl --silent --location https://lang-php.s3.amazonaws.com/dist-heroku-22-stable/php-8.2.6.tar.gz | tar xz -C /app/
+ENV PATH=/app/php/bin:/app/composer/bin:$PATH
+
 # Add user for application
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
