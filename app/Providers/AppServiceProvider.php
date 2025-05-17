@@ -22,15 +22,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Set the default string length for MySQL
+        // Set the default string length for SQLite/MySQL
         Schema::defaultStringLength(191);
         
         // Force HTTPS in production
         if (config('app.env') === 'production') {
             URL::forceScheme('https');
         }
-
-        // Set correct SSL mode for MySQL in Render
+        
+        // If using SQLite in production, ensure the path is set correctly
+        if (config('app.env') === 'production' && config('database.default') === 'sqlite') {
+            Config::set('database.connections.sqlite.database', env('DB_DATABASE', '/var/data/database.sqlite'));
+        }
+        
+        // Set correct SSL mode for MySQL in Render (if using MySQL)
         if (config('app.env') === 'production' && config('database.default') === 'mysql') {
             Config::set('database.connections.mysql.options', [
                 \PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/cert.pem',

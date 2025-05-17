@@ -17,6 +17,11 @@ php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
+# Set up SQLite database
+mkdir -p /var/data
+touch /var/data/database.sqlite
+chmod 777 /var/data/database.sqlite
+
 # Run database migrations
 php artisan migrate --force
 

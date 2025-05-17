@@ -17,31 +17,12 @@ services:
           type: web
           property: host
       - key: DB_CONNECTION
-        value: mysql
-      - key: DB_HOST
-        fromDatabase:
-          name: blazer-db
-          property: host
-      - key: DB_PORT
-        fromDatabase:
-          name: blazer-db
-          property: port
+        value: sqlite
       - key: DB_DATABASE
-        fromDatabase:
-          name: blazer-db
-          property: database
-      - key: DB_USERNAME
-        fromDatabase:
-          name: blazer-db
-          property: user
-      - key: DB_PASSWORD
-        fromDatabase:
-          name: blazer-db
-          property: password
+        value: /var/data/database.sqlite
       - key: MAIL_MAILER
         value: smtp
-
-  # Optionally add a database service
-databases:
-  - name: blazer-db
-    plan: standard
+    disk:
+      name: sqlite-data
+      mountPath: /var/data
+      sizeGB: 1

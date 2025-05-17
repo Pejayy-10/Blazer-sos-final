@@ -1,6 +1,6 @@
-# Deploying Blazer SOS to Render
+# Deploying Blazer SOS to Render with SQLite
 
-This document provides step-by-step instructions for deploying the Blazer SOS application to [Render](https://render.com).
+This document provides step-by-step instructions for deploying the Blazer SOS application to [Render](https://render.com) using SQLite as the database.
 
 ## Prerequisites
 
@@ -13,14 +13,26 @@ This document provides step-by-step instructions for deploying the Blazer SOS ap
 ### Step 1: Set up a Web Service on Render
 
 1. Log in to your Render dashboard
+2. Click on "Blueprints" in the left sidebar
+3. Click "New Blueprint Instance"
+4. Connect to your GitHub repository
+5. Render will automatically detect your render.yaml file and create the web service
+
+Alternatively, you can manually create the web service:
+
+1. Log in to your Render dashboard
 2. Click on the "New +" button and select "Web Service"
 3. Connect your GitHub repository
 4. Fill in the following details:
    - **Name**: `blazer-sos` (or your preferred name)
-   - **Environment**: `Docker`
+   - **Environment**: `PHP`
    - **Branch**: `main` (or your production branch)
    - **Build Command**: `./build.sh`
    - **Start Command**: `vendor/bin/heroku-php-nginx -C nginx.conf public/`
+5. Under "Advanced" section, add a disk:
+   - **Mount Path**: `/var/data`
+   - **Name**: `sqlite-data`
+   - **Size**: `1 GB`
 
 ### Step 2: Add Environment Variables
 
@@ -29,7 +41,8 @@ This document provides step-by-step instructions for deploying the Blazer SOS ap
    - `APP_DEBUG`: `false`
    - `APP_KEY`: Generate with `php artisan key:generate --show` locally and copy the value
    - `APP_URL`: Will be automatically set by Render
-   - `DB_CONNECTION`: `mysql`
+   - `DB_CONNECTION`: `sqlite`
+   - `DB_DATABASE`: `/var/data/database.sqlite`
    
 2. If you're using Render's MySQL database service, the connection details will be automatically injected
 
@@ -43,14 +56,7 @@ This document provides step-by-step instructions for deploying the Blazer SOS ap
    - `MAIL_FROM_ADDRESS`: The email address to send from
    - `MAIL_FROM_NAME`: "Blazer SOS"
 
-### Step 3: Set up a Database
-
-1. In your Render dashboard, click on "New +" and select "MySQL"
-2. Set the name to `blazer-db` (or your preferred name)
-3. Choose the plan that suits your needs
-4. After creation, note the connection details which will be automatically linked to your web service
-
-### Step 4: Deploy Your Application
+### Step 3: Deploy Your Application
 
 1. Click "Create Web Service" to start the deployment process
 2. Render will build and deploy your application
