@@ -1,4 +1,5 @@
-services:  - type: web
+services:
+  - type: web
     name: blazer-sos
     env: php
     runtime: php
