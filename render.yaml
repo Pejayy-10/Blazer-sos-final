@@ -18,10 +18,7 @@ services:
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
-        value: /var/data/database.sqlite
+        value: /tmp/database.sqlite  # Changed to use /tmp instead of /var/data
       - key: MAIL_MAILER
         value: smtp
-    disk:
-      name: sqlite-data
-      mountPath: /var/data
-      sizeGB: 1
+    # Removed disk configuration
