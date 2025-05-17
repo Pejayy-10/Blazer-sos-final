@@ -1,0 +1,19 @@
+{
+  "stack": "heroku-22",
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/php"
+    }
+  ],
+  "env": {
+    "APP_ENV": "production",
+    "APP_DEBUG": "false"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-1x"
+    }
+  }
+}
