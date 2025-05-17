@@ -1,7 +1,7 @@
 services:
   - type: web
     name: blazer-sos
-    runtime: heroku-php
+    runtime: docker
     buildCommand: ./build.sh
     startCommand: vendor/bin/heroku-php-nginx -C nginx.conf public/
     healthCheckPath: /health
