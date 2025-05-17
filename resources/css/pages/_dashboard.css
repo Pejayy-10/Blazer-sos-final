@@ -1,0 +1,201 @@
+/* 
+ * Dashboard CSS
+ * Styling for the main dashboard views
+ */
+
+/* Dashboard layout */
+.dashboard-container {
+    padding: 1.5rem;
+}
+
+/* Dashboard grid system */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+}
+
+.dashboard-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.dashboard-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.dashboard-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Dashboard header */
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.dark .dashboard-title {
+    color: var(--text-light);
+}
+
+.dashboard-subtitle {
+    color: var(--color-zinc-500);
+    font-size: 0.875rem;
+}
+
+.dark .dashboard-subtitle {
+    color: var(--color-zinc-400);
+}
+
+/* Dashboard card layouts */
+.dashboard-card {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.dark .dashboard-card {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--primary-light);
+}
+
+.dashboard-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.dashboard-card-header {
+    padding: 1.25rem 1.25rem 0 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-card-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.dark .dashboard-card-title {
+    color: var(--text-light);
+}
+
+.dashboard-card-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dashboard-card-body {
+    padding: 1.25rem;
+}
+
+.dashboard-card-footer {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Dashboard stats */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.dark .stat-card {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--primary-light);
+}
+
+.stat-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.stat-icon {
+    margin-bottom: 1rem;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+}
+
+.dark .stat-value {
+    color: var(--text-light);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-zinc-500);
+}
+
+.dark .stat-label {
+    color: var(--color-zinc-400);
+}
+
+.stat-trend {
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.stat-trend-positive {
+    color: var(--success);
+}
+
+.stat-trend-negative {
+    color: var(--danger);
+}
+
+.stat-trend-neutral {
+    color: var(--color-zinc-500);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .dashboard-grid-4,
+    .dashboard-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid-4,
+    .dashboard-grid-3,
+    .dashboard-grid-2 {
+        grid-template-columns: 1fr;
+    }
+} 

@@ -1,0 +1,131 @@
+/* 
+ * Header CSS
+ * Styling for page headers and top navigation bars
+ */
+
+/* Main application header */
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: var(--primary-dark);
+    border-bottom: 1px solid var(--primary-light);
+    color: var(--text-light);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.app-header-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.app-header-title svg,
+.app-header-title i {
+    margin-right: 0.5rem;
+}
+
+.app-header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.app-header-actions > * + * {
+    margin-left: 1rem;
+}
+
+/* User profile dropdown */
+.user-profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user-profile img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    object-fit: cover;
+}
+
+.user-profile span {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Page header with actions */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.page-header-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.dark .page-header-title {
+    color: var(--text-light);
+}
+
+.page-header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.page-header-actions > * + * {
+    margin-left: 0.5rem;
+}
+
+/* Section headers */
+.section-header {
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.dark .section-title {
+    color: var(--text-light);
+}
+
+.section-subtitle {
+    font-size: 0.875rem;
+    color: var(--color-zinc-500);
+}
+
+.dark .section-subtitle {
+    color: var(--color-zinc-400);
+}
+
+/* Mobile header */
+@media (max-width: 768px) {
+    .app-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .app-header-title {
+        font-size: 1.125rem;
+    }
+    
+    .app-header-menu-toggle {
+        margin-right: 1rem;
+        display: block;
+    }
+    
+    .user-profile span {
+        display: none;
+    }
+} 

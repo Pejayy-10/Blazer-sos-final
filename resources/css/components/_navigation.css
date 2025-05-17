@@ -1,0 +1,238 @@
+/* 
+ * Navigation CSS
+ * Styling for navigation components, menus, and dropdowns
+ */
+
+/* Navbar */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.navbar-brand img {
+    margin-right: 0.5rem;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--accent);
+}
+
+.nav-link.active {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Sidebar navigation */
+.sidebar {
+    width: 280px;
+    background-color: var(--primary-dark);
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    overflow-y: auto;
+    transition: all var(--transition-normal);
+}
+
+.sidebar-brand {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu {
+    padding: 1.5rem 0;
+}
+
+.sidebar-heading {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.sidebar-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+.sidebar-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    font-weight: 600;
+    border-left: 3px solid var(--accent);
+}
+
+.sidebar-item svg,
+.sidebar-item i {
+    margin-right: 0.75rem;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    background-color: white;
+    border: 1px solid var(--color-zinc-200);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    display: none;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: var(--text-dark);
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: var(--color-zinc-100);
+}
+
+.dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid var(--color-zinc-200);
+}
+
+/* Dark mode dropdown */
+.dark .dropdown-menu {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-light);
+}
+
+.dark .dropdown-item {
+    color: var(--text-light);
+}
+
+.dark .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .dropdown-divider {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile navigation */
+.mobile-navbar {
+    display: none;
+    padding: 1rem;
+    background-color: var(--primary-dark);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    max-width: 300px;
+    z-index: 1001;
+    background-color: var(--primary-dark);
+    transform: translateX(-100%);
+    transition: transform var(--transition-normal);
+}
+
+.mobile-sidebar.open {
+    transform: translateX(0);
+}
+
+.mobile-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+}
+
+.mobile-sidebar-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .mobile-navbar {
+        display: flex;
+    }
+} 

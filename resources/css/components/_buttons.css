@@ -1,0 +1,154 @@
+/* 
+ * Buttons CSS
+ * Styling for all button components
+ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:disabled {
+    opacity: 0.65;
+    pointer-events: none;
+}
+
+/* Primary Button */
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+    border: 1px solid var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(122, 21, 24, 0.4);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background-color: var(--background-light);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-light);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(122, 21, 24, 0.4);
+}
+
+/* Burgundy Button (Alias for Primary) */
+.btn-burgundy {
+    background-color: var(--primary);
+    color: white;
+    transition: all var(--transition-normal);
+}
+
+.btn-burgundy:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Success Button */
+.btn-success {
+    background-color: var(--success);
+    color: white;
+    border: 1px solid var(--success);
+}
+
+.btn-success:hover {
+    background-color: #2E7D32;
+    border-color: #2E7D32;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Danger Button */
+.btn-danger {
+    background-color: var(--danger);
+    color: white;
+    border: 1px solid var(--danger);
+}
+
+.btn-danger:hover {
+    background-color: #C62828;
+    border-color: #C62828;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Button Sizes */
+.btn-xs {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.btn-xl {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+/* Full Width Button */
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Icon Button */
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.btn-icon-sm {
+    height: 2rem;
+    width: 2rem;
+}
+
+.btn-icon-lg {
+    height: 3rem;
+    width: 3rem;
+} 

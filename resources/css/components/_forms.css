@@ -1,0 +1,156 @@
+/* 
+ * Forms CSS
+ * Styling for form elements and controls
+ */
+
+/* Form groups */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.dark .form-label {
+    color: var(--text-light);
+}
+
+/* Form controls */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-dark);
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid var(--color-zinc-300);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    outline: 0;
+    box-shadow: 0 0 0 3px rgba(122, 21, 24, 0.25);
+}
+
+.form-control:disabled {
+    background-color: var(--color-zinc-100);
+    opacity: 0.7;
+}
+
+/* Dark mode form controls */
+.dark .form-control {
+    background-color: var(--color-zinc-800);
+    border-color: var(--color-zinc-700);
+    color: var(--text-light);
+}
+
+/* Select control */
+select.form-control {
+    appearance: none;
+    padding-right: 2rem;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+/* Form input sizes */
+.form-control-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.form-control-lg {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+}
+
+/* Form validation styles */
+.is-valid {
+    border-color: var(--success);
+}
+
+.is-valid:focus {
+    border-color: var(--success);
+    box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.25);
+}
+
+.is-invalid {
+    border-color: var(--danger);
+}
+
+.is-invalid:focus {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.25);
+}
+
+.validation-message {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.invalid-feedback {
+    color: var(--danger);
+}
+
+.valid-feedback {
+    color: var(--success);
+}
+
+/* Custom checkbox and radio */
+.form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.form-check-label {
+    cursor: pointer;
+}
+
+/* Flux form specific styling */
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* Form layouts */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.5rem;
+    margin-left: -0.5rem;
+}
+
+.form-column {
+    flex: 1 0 0%;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+} 

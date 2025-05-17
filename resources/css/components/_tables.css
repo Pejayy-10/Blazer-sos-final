@@ -1,0 +1,126 @@
+/* 
+ * Tables CSS
+ * Styling for tables and data display
+ */
+
+/* Base table styles */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    text-align: left;
+    border-top: 1px solid var(--color-zinc-200);
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid var(--color-zinc-200);
+    font-weight: 600;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid var(--color-zinc-200);
+}
+
+/* Bordered table */
+.table-bordered {
+    border: 1px solid var(--color-zinc-200);
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid var(--color-zinc-200);
+}
+
+/* Borderless table */
+.table-borderless th,
+.table-borderless td,
+.table-borderless thead th,
+.table-borderless tbody + tbody {
+    border: 0;
+}
+
+/* Striped table */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--color-zinc-50);
+}
+
+/* Hoverable table */
+.table-hover tbody tr:hover {
+    background-color: var(--color-zinc-100);
+}
+
+/* Admin table styles */
+.admin-table {
+    background-color: var(--primary-dark);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    color: var(--text-light);
+}
+
+.admin-table th {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-light);
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-table td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-table tr:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive tables */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Condensed table */
+.table-sm th,
+.table-sm td {
+    padding: 0.3rem;
+}
+
+/* Table with contextual classes */
+.table-success,
+.table-success > th,
+.table-success > td {
+    background-color: rgba(67, 160, 71, 0.1);
+}
+
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+    background-color: rgba(229, 57, 53, 0.1);
+}
+
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+    background-color: rgba(255, 179, 0, 0.1);
+}
+
+.table-info,
+.table-info > th,
+.table-info > td {
+    background-color: rgba(3, 155, 229, 0.1);
+}
+
+/* Table with no breakspaces */
+.table-nowrap th,
+.table-nowrap td {
+    white-space: nowrap;
+} 

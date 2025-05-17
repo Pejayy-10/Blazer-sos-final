@@ -1,0 +1,187 @@
+/* 
+ * Sidebar CSS
+ * Styling for sidebar layout and navigation
+ */
+
+/* Main sidebar layout */
+.app-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background-color: var(--primary-dark);
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid var(--primary-light);
+    transition: all var(--transition-normal);
+    position: sticky;
+    top: 0;
+}
+
+/* Sidebar brand/logo area */
+.sidebar-brand {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-logo {
+    height: 40px;
+    width: auto;
+}
+
+.sidebar-brand-text {
+    margin-left: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+/* Sidebar navigation sections */
+.sidebar-section {
+    padding: 1.25rem 0;
+}
+
+.sidebar-heading {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    opacity: 0.6;
+    font-weight: 600;
+}
+
+/* Individual sidebar navigation items */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-light);
+    opacity: 0.8;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+
+.sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    opacity: 1;
+    font-weight: 600;
+    border-left: 3px solid var(--accent);
+    padding-left: calc(1.5rem - 3px);
+}
+
+.sidebar-icon {
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+}
+
+/* Collapsed state for sidebar */
+.app-sidebar.collapsed {
+    width: 70px;
+}
+
+.app-sidebar.collapsed .sidebar-brand-text,
+.app-sidebar.collapsed .sidebar-heading,
+.app-sidebar.collapsed .sidebar-link span {
+    display: none;
+}
+
+.app-sidebar.collapsed .sidebar-link {
+    justify-content: center;
+    padding: 1rem;
+}
+
+.app-sidebar.collapsed .sidebar-icon {
+    margin-right: 0;
+}
+
+/* Mobile sidebar */
+@media (max-width: 768px) {
+    .app-sidebar {
+        position: fixed;
+        left: -260px;
+        z-index: 100;
+    }
+    
+    .app-sidebar.open {
+        left: 0;
+    }
+    
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 99;
+        display: none;
+    }
+    
+    .sidebar-overlay.open {
+        display: block;
+    }
+}
+
+/* User profile area in sidebar */
+.sidebar-profile {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+.sidebar-profile-info {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 0.75rem;
+}
+
+.sidebar-profile-name {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.sidebar-profile-role {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.sidebar-toggle:hover {
+    background-color: var(--primary-light);
+} 

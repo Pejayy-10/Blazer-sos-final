@@ -1,0 +1,198 @@
+/* 
+ * Cards CSS
+ * All card components and variations
+ */
+
+/* Base card styles */
+.card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+}
+
+.card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Solid cards - replacing glassmorphism */
+.solid-card {
+    background-color: var(--primary);
+    border: 1px solid var(--primary-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    color: var(--text-light);
+}
+
+.solid-card-dark {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--primary-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    color: var(--text-light);
+}
+
+.solid-card-light {
+    background-color: var(--background-light);
+    border: 1px solid #EAEAEA;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    color: var(--text-dark);
+}
+
+/* Admin card styles */
+.admin-card {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--primary-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    color: var(--text-light);
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Card hover effects */
+.card-hover {
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Card with image */
+.card-with-image .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Profile card */
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.profile-card .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--primary);
+}
+
+.profile-card .profile-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.profile-card .profile-role {
+    font-size: 0.875rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+/* Yearbook card */
+.yearbook-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+}
+
+.yearbook-card .yearbook-cover {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.yearbook-card:hover .yearbook-cover {
+    transform: scale(1.05);
+}
+
+.yearbook-card .yearbook-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+}
+
+.yearbook-card .yearbook-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.yearbook-card .yearbook-year {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Order card */
+.order-card {
+    border-left: 4px solid var(--primary);
+}
+
+/* Status cards */
+.status-card {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.status-card .status-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.status-card .status-content {
+    flex: 1;
+}
+
+.status-card.status-success .status-icon {
+    background-color: rgba(67, 160, 71, 0.1);
+    color: var(--success);
+}
+
+.status-card.status-danger .status-icon {
+    background-color: rgba(229, 57, 53, 0.1);
+    color: var(--danger);
+}
+
+.status-card.status-warning .status-icon {
+    background-color: rgba(255, 179, 0, 0.1);
+    color: var(--warning);
+}
+
+.status-card.status-info .status-icon {
+    background-color: rgba(3, 155, 229, 0.1);
+    color: var(--info);
+} 
